@@ -3,3 +3,4 @@ Flask==1.0.2
 pymessenger==0.0.7.0
 requests==2.18.4
 pyowm==2.9.0
+gunicorn==19.6.0
