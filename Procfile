@@ -1,1 +1,1 @@
-web: python app.py -p $PORT
+web: bundle exec rails s -p $PORT
