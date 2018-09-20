@@ -1,1 +1,1 @@
-web: python app.py -p 4000
+web: gunicorn app:app
