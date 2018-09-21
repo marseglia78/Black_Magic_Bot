@@ -38,8 +38,8 @@ def receive_message():
                 #recipient_id = message['recipient']['id']
                 #sender_id = message['sender']['id']
                 if message['message'].get('text'):
-                    #response_sent_text = get_message()
-                    response_sent_text = "W LA FIGA!"
+                    response_sent_text = get_message()
+                    #response_sent_text = "W LA FIGA!"
                     send_message(sender_id, response_sent_text)
                     #send_message(recipient_id, response_sent_text)
                 #if user sends us a GIF, photo,video, or any other non-text item
