@@ -16,7 +16,7 @@ bot = Bot(ACCESS_TOKEN)
 
 #'''
 @app.route("/", methods=['GET', 'POST'])
-def receive_message():
+def receive_message_check():
     if request.method == 'GET':
         token_sent = request.args.get("hub.verify_token")
         return verify_fb_token(token_sent)
