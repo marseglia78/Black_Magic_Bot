@@ -49,7 +49,9 @@ def receive_message():
           for message in messaging:
             if message.get('message'):
                 if message['message'].get('text'):
-                    text=data['entry'][0]['messaging'][0]
+
+                    text=data['entry'][0]['messaging']
+                    print(text)
                     #response_sent_text = get_message()
                     #send_message(sender_id, response_sent_text)
                     send_message(sender_id, text)
