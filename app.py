@@ -54,7 +54,7 @@ def receive_message():
 
                     text=data['entry'][0]['messaging'][0]['message']['text']
                     #out_text=get_message2(text)
-                    #print(text)
+                    print(text)
                     #response_sent_text = get_message()
                     #send_message(sender_id, response_sent_text)
                     send_message(sender_id, text)
