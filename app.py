@@ -10,7 +10,6 @@ ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
 VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
 
 #VERIFY_TOKEN='random_demo_token_123'
-#ACCESS_TOKEN='EAADJ1Qu6z0ABAJTkKZCdlzxCPbqFFLATsyK968Qo36R7AWHKyn5UTTMnuEqZB1ZBOF8WQXjNMZCHkNE7lxaxm28TuuNHN4GUzugsWIW0ITQFAl82M4lIUo5HujzwwstaeXB05ECXVPOiTHqqppUHk9n2RGyO9CoqpGAY3TI2ZCmGyVWuBTZClZC'
 #ACCESS_TOKEN='EAAd0fYx51rcBANxZB9zdKQIYxuR3GEPqK60TAefCJ7TiZCsF14pYz4kcaSQgflqum3p5qhdv9qMG2XZAxxec8fCbJ3i7wWq1CbqWBqkz3H2u7cXcUTqtvSZAIdzkFqmAkogiefCgZCAEPxxcqaUkr7hZCZCtGrPOAZCYlCkZCi6vvHgZDZD'
 bot = Bot(ACCESS_TOKEN)
 
@@ -49,14 +48,12 @@ def receive_message():
           messaging = event['messaging']
           for message in messaging:
             if message.get('message'):
-                #Facebook Messenger ID for user so we know where to send response back to
-                #recipient_id = message['recipient']['id']
-                #sender_id = message['sender']['id']
                 if message['message'].get('text'):
-                    response_sent_text = get_message()
-                    #response_sent_text = "W LA FIGA!"
-                    send_message(sender_id, response_sent_text)
-                    #send_message(recipient_id, response_sent_text)
+                    text=data['entry'][0]['messaging'][0]
+                    #response_sent_text = get_message()
+                    #send_message(sender_id, response_sent_text)
+                    send_message(sender_id, text)
+
                 #if user sends us a GIF, photo,video, or any other non-text item
                 if message['message'].get('attachments'):
                     response_sent_nontext = get_message()
@@ -70,7 +67,12 @@ def verify_fb_token(token_sent):
         return request.args.get("hub.challenge")
     return 'Invalid verification token'
 
-
+'''
+def get_message2():
+    sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
+    # return selected item to the user
+    return random.choice(sample_responses)
+'''
 #chooses a random message to send to the user
 def get_message():
     sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
