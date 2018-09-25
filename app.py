@@ -14,7 +14,7 @@ VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
 #ACCESS_TOKEN='EAAd0fYx51rcBANxZB9zdKQIYxuR3GEPqK60TAefCJ7TiZCsF14pYz4kcaSQgflqum3p5qhdv9qMG2XZAxxec8fCbJ3i7wWq1CbqWBqkz3H2u7cXcUTqtvSZAIdzkFqmAkogiefCgZCAEPxxcqaUkr7hZCZCtGrPOAZCYlCkZCi6vvHgZDZD'
 bot = Bot(ACCESS_TOKEN)
 
-'''
+#'''
 @app.route("/", methods=['GET'])
 #@app.route("/", methods=['GET', 'POST'])
 def receive_message():
@@ -24,7 +24,7 @@ def receive_message():
         send_message(sender_id, "your app is succesfully deployed")
         return "Message Processed"
     #if the request was not get, it must be POST and we can just proceed with sending a message back to user
-'''
+#'''
 
 ##We will receive messages that Facebook sends our bot at this endpoint
 @app.route("/webhook", methods=['GET', 'POST'])
