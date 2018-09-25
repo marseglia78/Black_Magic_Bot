@@ -15,15 +15,25 @@ VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
 bot = Bot(ACCESS_TOKEN)
 
 #'''
-@app.route("/", methods=['GET'])
+@app.route("/", methods=['GET', 'POST'])
 #@app.route("/", methods=['GET', 'POST'])
 def receive_message():
     if request.method == 'GET':
+        """Before allowing people to message your bot, Facebook has implemented a verify token
+        that confirms all requests that your bot receives came from Facebook."""
+        token_sent = request.args.get("hub.verify_token")
+        return verify_fb_token(token_sent)
+        '''
         data = request.json
         sender_id = data['entry'][0]['messaging'][0]['sender']['id']
         send_message(sender_id, "your app is succesfully deployed")
         return "Message Processed"
-    #if the request was not get, it must be POST and we can just proceed with sending a message back to user
+        '''
+    else:
+        data = request.json
+        sender_id = data['entry'][0]['messaging'][0]['sender']['id']
+        send_message(sender_id, "your app is succesfully deployed")
+        return "Message Processed"
 #'''
 
 ##We will receive messages that Facebook sends our bot at this endpoint
