@@ -50,7 +50,7 @@ def receive_message():
             if message.get('message'):
                 if message['message'].get('text'):
 
-                    text=data['entry'][0]['messaging']
+                    text=data['entry'][0]['messaging'][0]['message']['text']
                     print(text)
                     #response_sent_text = get_message()
                     #send_message(sender_id, response_sent_text)
