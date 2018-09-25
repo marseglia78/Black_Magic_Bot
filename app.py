@@ -39,11 +39,13 @@ def receive_message():
         return verify_fb_token(token_sent)
     #if the request was not get, it must be POST and we can just proceed with sending a message back to user
     else:
-        # get whatever message a user sent the bot
+       # get whatever message a user sent the bot
        output = request.get_json()
        data = request.json
+
        recipient_id = data['entry'][0]['messaging'][0]['recipient']['id']
        sender_id = data['entry'][0]['messaging'][0]['sender']['id']
+       send_message(sender_id, "PHARMACY? yes/no")
        for event in output['entry']:
           messaging = event['messaging']
           for message in messaging:
@@ -51,7 +53,8 @@ def receive_message():
                 if message['message'].get('text'):
 
                     text=data['entry'][0]['messaging'][0]['message']['text']
-                    print(text)
+                    #out_text=get_message2(text)
+                    #print(text)
                     #response_sent_text = get_message()
                     #send_message(sender_id, response_sent_text)
                     send_message(sender_id, text)
@@ -70,7 +73,7 @@ def verify_fb_token(token_sent):
     return 'Invalid verification token'
 
 '''
-def get_message2():
+def get_message2(text):
     sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
     # return selected item to the user
     return random.choice(sample_responses)
