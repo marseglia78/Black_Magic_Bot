@@ -19,7 +19,8 @@ bot = Bot(ACCESS_TOKEN)
 def receive_message_check():
     if request.method == 'GET':
         token_sent = request.args.get("hub.verify_token")
-        return verify_fb_token(token_sent)
+        #return verify_fb_token(token_sent)
+        return "your app is succesfully deployed"
 
     else:
         data = request.json
