@@ -45,7 +45,7 @@ def receive_message():
 
        recipient_id = data['entry'][0]['messaging'][0]['recipient']['id']
        sender_id = data['entry'][0]['messaging'][0]['sender']['id']
-       send_message(sender_id, "PHARMACY? yes/no")
+       #send_message(sender_id, "PHARMACY? yes/no")
        for event in output['entry']:
           messaging = event['messaging']
           for message in messaging:
